@@ -1,0 +1,4 @@
+enable,Key.page_up
+disable,Key.page_down
+close,Key.ctrl_r
+change,Key.home
