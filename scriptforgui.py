@@ -22,6 +22,8 @@ class hotkeyCheck:
         
 def listFiles():
     allFiles = os.listdir(os.path.abspath(os.path.dirname(__file__)))
+    #NOTE: ERROR: This is currently a temporary garbage directory when running the executable. DOES. NOT. WORK. Fix required.
+    print('looking in directory: ', os.path.abspath(os.path.dirname(__file__)))
     goodFiles = []
     printThis = ['KEY\t  FILE']
     for file in allFiles:
