@@ -6,7 +6,8 @@ It's ugly, but it works.
 
 # INFO
 
-Supports both keyboard presses and mouse clicks. Doesn't detect mouse clicks yet.
+Supports both automated keyboard presses and automated mouse clicks. Doesn't detect your mouse clicks yet - 
+this could be added in the future if I decide it's worthwhile.
 Turns on when you press "enter-r-enter."
 Also turns on when you press "/p r enter." So if you change to party chat and type r, it'll think you're ready.
 Turns off when you press enter.
