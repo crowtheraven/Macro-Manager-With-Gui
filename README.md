@@ -8,12 +8,13 @@ It's ugly, but it works.
 
 Supports both automated keyboard presses and automated mouse clicks. Doesn't detect your mouse clicks yet - 
 this could be added in the future if I decide it's worthwhile.
+Press the "Go Time" button to enable it, otherwise it'll just run on its own in the background.
 Turns on when you press "enter-r-enter."
 Also turns on when you press "/p r enter." So if you change to party chat and type r, it'll think you're ready.
 Turns off when you press enter.
 Other commands for turning it on/off are on settings.csv.
 The macros are edited on def.csv. Other macros can be added by you creating your own .csv files.
-The code is designed to easily switch between multiple macros, so go ahead and make up to 10 of them and have  fun.
+The code is designed to easily switch between multiple macros, so go ahead and make up to 10 of them and have fun.
 Editing the macros on excel is not advised because it'll try to autoformat - and you don't want that. Use notepad.
 
 Note: these are .csv files, which stands for "comma separated values." They are divided into three 
