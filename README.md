@@ -4,7 +4,7 @@ erp is required
 
 It's ugly, but it works.
 
-#INFO
+# INFO
 
 Supports both keyboard presses and mouse clicks. Doesn't detect mouse clicks yet.
 Turns on when you press "enter-r-enter."
