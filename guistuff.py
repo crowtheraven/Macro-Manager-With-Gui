@@ -1,4 +1,6 @@
 import scriptforgui as s, _thread, tkinter, time
+import os
+path = os.path.abspath(os.path.dirname(__file__))
 
 #open default csv titled def.csv
 try: s.commands = s.openCsv('def.csv')
@@ -19,7 +21,7 @@ def goTime():
     statuslbl.config(text = '')
 
 def changeScript():
-    s.files, printThis = s.listFiles()
+    s.files, printThis = s.listFiles(path)
     s.runningScript = False
     s.changeCsvInput = True
     _thread.start_new_thread(s.nextKey_thread, ())
