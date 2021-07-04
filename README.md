@@ -8,10 +8,10 @@ It's ugly, but it works.
 
 Supports both automated keyboard presses and automated mouse clicks. Doesn't detect your mouse clicks yet - 
 this could be added in the future if I decide it's worthwhile.
-Press the "Go Time" button to enable it, otherwise it'll just run on its own in the background.
-Turns on when you press "enter-r-enter."
-Also turns on when you press "/p r enter." So if you change to party chat and type r, it'll think you're ready.
-Turns off when you press enter.
+Press the "Go Time" button to turn on the script with the macro enabled, otherwise the gui will just run on its own in the background.
+Macro is enabled when you press "enter-r-enter."
+Also enables when you press "/p r enter." So if you change to party chat and type r, it'll think you're ready.
+It disables off when you press enter.
 Other commands for turning it on/off are on settings.csv.
 The macros are edited on def.csv. Other macros can be added by you creating your own .csv files.
 The code is designed to easily switch between multiple macros, so go ahead and make up to 10 of them and have fun.
