@@ -10,7 +10,7 @@ except:
 
 def goTime():
     s.keyPressed = False
-    s.runningScript = False
+    s.runningScript = True
     s.closeProgram = False
     s.changeCsvInput = False
     _thread.start_new_thread(s.input_thread, ())
@@ -29,6 +29,7 @@ def changeScript():
     for i in range(len(printThis)):
         listbox.insert(i, printThis[i])
     refreshLabels()
+    goTime()
     
 def isMacroRunningText():
     if(s.runningScript): 
