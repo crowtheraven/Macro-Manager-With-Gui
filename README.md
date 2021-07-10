@@ -37,3 +37,6 @@ Multiple keys can be pressed at the same time using <>. <{shift}f> will press sh
 Mouse clicks can be added inside (). r = right click and l = left click. So (rl) is right click then left click.
 
 TERA players send gold to Crooow on Velika NA.
+
+# FOR THOSE WHO WISH TO RUN THE .PY INSTEAD OF THE .EXE
+Have Python installed, yada yada hoohaw, whatever. Run the guistuff.py, not the scriptforgui.py. Have both the .py in the same folder though, of course. Make sure you've got all the neccesarrily imports listed at the top of the files.
