@@ -4,7 +4,7 @@ erp is required
 
 This is ugly, but it's functional.
 
-IMPORTANT: run as administrator or it won't work!
+IMPORTANT: run as administrator or it won't work for TERA!
 
 # INFO
 
