@@ -2,7 +2,9 @@
 erp is required
 
 
-It's ugly, but it works.
+This is ugly, but it's functional.
+
+IMPORTANT: run as administrator or it won't work!
 
 # INFO
 
