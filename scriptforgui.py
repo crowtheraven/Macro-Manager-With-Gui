@@ -6,6 +6,7 @@ keyPressed = False
 runningScript = True
 closeProgram = False
 changeCsvInput = True
+changeScriptEvent = False
 csvRunning = ''
 updateScriptLbl = False
 
@@ -131,7 +132,7 @@ def settingsCsv(openThis):
         return hotkeys
 
 def on_press(key):
-    global keyPressed, runningScript, closeProgram, commands
+    global keyPressed, runningScript, closeProgram, commands, changeScriptEvent
     keyPressed = True
     for i in range(len(hotkeys)):
         if(str(key) == hotkeys[i]):
@@ -143,6 +144,8 @@ def on_press(key):
                 print('Script closing.')
                 closeProgram = True
                 runningScript = False
+            if(i == 3):#change script
+                changeScriptEvent = True
     #blocks it from typing in the chat
     if(key == Key.enter):
         runningScript = False
@@ -180,18 +183,21 @@ def input_thread():
     while (not closeProgram):
         with Listener(on_press = on_press, on_release = on_release) as listener:
             listener.join()
+    print('input thread should be closing*')
     return False
 
 def nextKey_thread():
-    with Listener(on_press = changingCsvs, on_release = windowIsKill) as listener:
-        listener.join()
+    while(changeCsvInput):
+        with Listener(on_press = changingCsvs, on_release = windowIsKill) as listener:
+            listener.join()
+    print('next key thread should be closing*')
     return False
 
 def windowIsKill(key):
     return False
         
 def changingCsvs(key):
-    global changeCsvInput, files, commands, csvRunning, updateScriptLbl
+    global changeScriptEvent, changeCsvInput, files, commands, csvRunning, updateScriptLbl
     if(changeCsvInput):
         try:
             num = keyToInt(key)
