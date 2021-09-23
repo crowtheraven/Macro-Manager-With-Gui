@@ -2,6 +2,7 @@ from pynput.keyboard import Controller as keyboard, Listener, Key
 from pynput.mouse import Controller as mouse, Button
 import time, csv, os
 
+#initialize variables
 keyPressed = False
 runningScript = True
 closeProgram = False
@@ -153,8 +154,7 @@ def on_press(key):
         if(checkThis(readyCheck, key)):
             time.sleep(0.1)
             runningScript = True
-            keyboard().press(Key.f8)
-            keyboard().release(Key.f8)
+            typeThis(hotkeys[4])
     #commands
     if(runningScript):
         for command in commands:
