@@ -4,7 +4,7 @@ erp is required
 
 This is ugly, but it's functional.
 
-IMPORTANT: run as administrator or it won't work for TERA!
+IMPORTANT: run as administrator or it won't work for TERA! Run macromanager.exe for the console-free version or run runthis.exe for the version with a console window that shows the automatic keypresses for the currently loaded macro.
 
 # INFO
 
@@ -17,7 +17,7 @@ It disables off when you press enter.
 Other commands for turning it on/off are on settings.csv.
 The macros are edited on def.csv. Other macros can be added by you creating your own .csv files.
 The code is designed to easily switch between multiple macros, so go ahead and make up to 10 of them and have fun.
-Editing the macros on excel is not advised because it'll try to autoformat - and you don't want that. Use notepad.
+Editing the macros on excel is not advised because it'll try to autoformat - and you don't want that. Use notepad instead.
 
 Note: these are .csv files, which stands for "comma separated values." They are divided into three 
 columns that the code reads from. Each column is separated by a comma. Every line in the file must
