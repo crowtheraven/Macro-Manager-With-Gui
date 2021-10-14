@@ -2,4 +2,5 @@ enable,Key.page_up
 disable,Key.page_down
 close,Key.ctrl_r
 change,Key.home
-keys to auto-press after typing enter-r-enter,
+keys press on ready check,{f8}
+sound on,True,Change 'True' to anything else to turn sound off.

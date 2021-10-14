@@ -1,6 +1,6 @@
 from pynput.keyboard import Controller as keyboard, Listener, Key
 from pynput.mouse import Controller as mouse, Button
-import time, csv, os
+import time, csv, os, winsound
 
 #initialize variables
 keyPressed = False
@@ -26,7 +26,7 @@ def listFiles(path):
     allFiles = os.listdir(path)
     print('looking in directory: ', path)
     goodFiles = []
-    printThis = ['KEY\t  FILE']
+    printThis = ['KEY   FILE']
     for file in allFiles:
         #checks for file extension, returns only .txt and .csv
         try: extension = file.split('.',2)[1]
@@ -39,7 +39,7 @@ def listFiles(path):
                 printThis.append('You have more files than the amount supported.')
                 break
     for i in range(len(goodFiles)):
-        temp = str(i) + '\t   ' + str(goodFiles[i])
+        temp = str(i) + '     ' + str(goodFiles[i])
         printThis.append(temp)
     return goodFiles, printThis
 
@@ -137,23 +137,28 @@ def on_press(key):
     keyPressed = True
     for i in range(len(hotkeys)):
         if(str(key) == hotkeys[i]):
-            if(i == 0):#enable
+            if(i == 0 and not runningScript):#enable
+                if(hotkeys[5] == 'True'): winsound.Beep(600, 400)
                 runningScript = True
-            if(i == 1):#disable
+            if(i == 1 and runningScript):#disable
                 runningScript = False
+                if(hotkeys[5] == 'True'): winsound.Beep(50, 400)
             if(i == 2):#close
                 print('Script closing.')
                 closeProgram = True
                 runningScript = False
+                if(hotkeys[5] == 'True'): winsound.Beep(50, 400)
             if(i == 3):#change script
                 changeScriptEvent = True
     #blocks it from typing in the chat
-    if(key == Key.enter):
+    if(key == Key.enter and runningScript):
+        if(hotkeys[5] == 'True'): winsound.Beep(50, 400)
         runningScript = False
     for readyCheck in readychecks:
         if(checkThis(readyCheck, key)):
             time.sleep(0.1)
             runningScript = True
+            if(hotkeys[5] == 'True'): winsound.Beep(600, 400)
             typeThis(hotkeys[4])
     #commands
     if(runningScript):
@@ -197,7 +202,7 @@ def windowIsKill(key):
     return False
         
 def changingCsvs(key):
-    global changeScriptEvent, changeCsvInput, files, commands, csvRunning, updateScriptLbl
+    global changeCsvInput, files, commands, csvRunning, updateScriptLbl
     if(changeCsvInput):
         try:
             num = keyToInt(key)
