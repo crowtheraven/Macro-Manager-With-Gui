@@ -1,11 +1,10 @@
-'8',r,2871r, 8=nova r=lances 2=LS 7=Hail
-'2',r,877828778287782877828778287782871r
-'4',r,47, 4 = void pulse
-'=',r,7, = = frost sphere
-'1',r,, 1 = fusion
-'6',r,6, 6 = meteor strike
-'7',r,
-'9',r,, 9 = arcane pulse
-Key.f5,r,, f5 = implosion
-'5',{f2},, 5 = burn
-Key.f3,{f4},, f3 = brooch f4 = pet buff
+Key.f1,2,1{f1}{f4}1, f1=nova 2=lances 1=LS f4=Hail
+'1',2,{f1}{f4}{f1}1{f1}{f4}{f1}1{f1}{f4}{f1}1{f1}{f4}{f1}1{f1}{f4}{f1}1{f1}{f4}{f1}1{f1}{f4}{f4}12
+Key.f3,2,{f3}{f3}{f3}{f4}, void pulse
+Key.f2,2,{f4}, frost sphere
+'4',2,, fusion
+'3',2,333, meteor strike
+Key.f4,2,,hail
+5,2,, implosion
+'q',{f2},, burn
+Key.f9,{f10},, autopet after brooch
