@@ -1,10 +1,9 @@
 # Macro-Manager-With-Gui
-erp is required
-
+https://github.com/crowtheraven/Macro-Manager-With-Gui
 
 This is ugly, but it's functional.
 
-IMPORTANT: run as administrator or it won't work for TERA! Run macromanager.exe for the console-free version or run runthis.exe for the version with a console window that shows the automatic keypresses for the currently loaded macro.
+IMPORTANT: run as administrator or it won't work for TERA (possibly other games too)!
 
 # INFO
 
@@ -41,4 +40,5 @@ Mouse clicks can be added inside (). r = right click and l = left click. So (rl)
 TERA players send gold to Crooow on Velika NA.
 
 # FOR THOSE WHO WISH TO RUN THE .PY INSTEAD OF THE .EXE
-Have Python installed, yada yada hoohaw, whatever. Run the guistuff.py, not the scriptforgui.py. Have both the .py in the same folder though, of course. Make sure you've got all the neccesarrily imports listed at the top of the files.
+Have Python installed, yada yada hoohaw, whatever. Run the guistuff.py, not the scriptforgui.py. Have both the .py in the same folder though, 
+of course. Make sure you've got all the neccesarrily imports listed at the top of the files.
