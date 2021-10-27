@@ -180,10 +180,15 @@ def input_thread():
     global hotkeys, readychecks, commands, csvRunning
     if(csvRunning == ''):
         #open default csv titled def.csv
-        try: commands, csvRunning = openCsv('def.csv')
-        except: print('ERROR: failed to open default def.csv')
+        try: commands, csvRunning = openCsv('def.txt')
+        except: 
+            try: commands, csvRunning = openCsv('def.csv')
+            except: print('ERROR: failed to open default def.txt')
     readMe(commands, csvRunning)
-    hotkeys = settingsCsv('settings.csv')
+    try: hotkeys = settingsCsv('settings.txt')
+    except:
+        try: hotkeys = settingsCsv('settings.csv')
+        except: print('ERROR: failed to open settings.txt')
     readychecks = [hotkeyCheck(['Key.enter',"'r'",'Key.enter']),hotkeyCheck(["'/'","'p'",'Key.space',"'r'","Key.enter"])]
     while (not closeProgram):
         with Listener(on_press = on_press, on_release = on_release) as listener:
