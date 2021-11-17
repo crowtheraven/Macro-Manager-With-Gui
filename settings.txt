@@ -4,4 +4,4 @@ close,Key.ctrl_r
 change,Key.home
 keys press on ready check,{f8}{0.25}<{ctrl}c>{0.45}<{ctrl}x>
 sound on,True,Change 'True' to anything else to turn sound off.
-enter disables macro,True,change 'True' to anything else and it won't mess up your chats
+enter disables macro,True,change 'True' to anything else and it won't turn off on you anymore when you press enter
