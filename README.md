@@ -3,7 +3,7 @@ https://github.com/crowtheraven/Macro-Manager-With-Gui
 
 This is ugly, but it's functional.
 
-IMPORTANT: run as administrator or it won't work for TERA (possibly other games too)!
+IMPORTANT: run as administrator or it won't work for TERA (possibly other games too)! Also, windows might try to kill or quarantine the .py files because some of the code looks suspiciously like a keylogger. You or someone else can look at the code on here yourself and confirm that it's not. It just needs to read your keypresses in order to work. Just go to the windows defender notifications, click on them, and tell them to restore the files and they'll come back. Or just run the .exe, which it trusts after you tell it to.
 
 # INFO
 
