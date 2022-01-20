@@ -126,30 +126,32 @@ def openCsv(openThis):
 
 def on_press(key):
     global keyPressed, runningScript, closeProgram, commands, changeScriptEvent
-    keyPressed = True
-    if(key == h.toggleOn and not runningScript):#enable
-        if(h.sound): winsound.Beep(600, 400)
-        runningScript = True
-    elif(key == h.toggleOff and runningScript):#disable
-        if(h.sound): winsound.Beep(50, 400)
-        runningScript = False
-    elif(key == h.close):#close
-        print('Script closing.')
-        closeProgram = True
-        runningScript = False
-        if(h.sound): winsound.Beep(50, 400)
-    elif(key == h.change):#change script
-        changeScriptEvent = True
-    #blocks it from typing in the chat
-    if(key == Key.enter and runningScript):
-        if(h.sound): winsound.Beep(50, 400)
-        runningScript = False
-    for readyCheck in readychecks:
-        if(checkThis(readyCheck, key)):
-            time.sleep(0.1)
-            runningScript = True
+    #things that you only want to execute once while a key is held down
+    if(not keyPressed):
+        if(key == h.toggleOn and not runningScript):#enable
             if(h.sound): winsound.Beep(600, 400)
-            typeThis(h.readyCheck)
+            runningScript = True
+        elif(key == h.toggleOff and runningScript):#disable
+            if(h.sound): winsound.Beep(50, 400)
+            runningScript = False
+        elif(key == h.close):#close
+            print('Script closing.')
+            closeProgram = True
+            runningScript = False
+            if(h.sound): winsound.Beep(50, 400)
+        elif(key == h.change):#change script
+            changeScriptEvent = True
+        #blocks it from typing in the chat
+        if(key == Key.enter and runningScript):
+            if(h.sound): winsound.Beep(50, 400)
+            runningScript = False
+        for readyCheck in readychecks:
+            if(checkThis(readyCheck, key)):
+                time.sleep(0.1)
+                runningScript = True
+                if(h.sound): winsound.Beep(600, 400)
+                typeThis(h.readyCheck)
+    keyPressed = True
     #commands
     if(runningScript):
         for command in commands:
