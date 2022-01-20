@@ -1,7 +1,0 @@
-enable,Key.page_up
-disable,Key.page_down
-close,Key.ctrl_r
-change,Key.home
-keys press on ready check,
-sound on,True,Change 'True' to anything else to turn sound off.
-enter disables macro,True,change 'True' to anything else and it won't turn off on you anymore when you press enter
