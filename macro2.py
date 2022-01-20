@@ -1,6 +1,6 @@
 from pynput.keyboard import Controller as keyboard, Listener, Key
 from pynput.mouse import Controller as mouse, Button
-import time, csv, os, winsound, macro_settings as h
+import time, csv, os, winsound
 
 #initialize variables
 keyPressed = False
@@ -10,6 +10,7 @@ changeCsvInput = True
 changeScriptEvent = False
 csvRunning = ''
 updateScriptLbl = False
+settings = []
 
 class Command:
     def __init__(self, keyIn, onPress, onRelease):
@@ -34,7 +35,7 @@ def listFiles(path):
         if(extension == 'txt' or extension == 'csv'):
             #currently only supports 10 files
             if(len(goodFiles) < 10): 
-                if(file != 'settings.csv' and file != 'settings.txt'): goodFiles.append(file)
+                if(file != 'macro_settings.csv' and file != 'macro_settings.txt'): goodFiles.append(file)
             else:
                 printThis.append('You have more files than the amount supported.')
                 break
@@ -128,29 +129,30 @@ def on_press(key):
     global keyPressed, runningScript, closeProgram, commands, changeScriptEvent
     #things that you only want to execute once while a key is held down
     if(not keyPressed):
-        if(key == h.toggleOn and not runningScript):#enable
-            if(h.sound): winsound.Beep(600, 400)
+        print('key just pressed')
+        if(str(key) == settings[0] and not runningScript):#enable
+            if(settings[6] == 'True'): winsound.Beep(600, 400)
             runningScript = True
-        elif(key == h.toggleOff and runningScript):#disable
-            if(h.sound): winsound.Beep(50, 400)
+        elif(str(key) == settings[1] and runningScript):#disable
+            if(settings[6] == 'True'): winsound.Beep(50, 400)
             runningScript = False
-        elif(key == h.close):#close
+        elif(str(key) == settings[2]):#close
             print('Script closing.')
             closeProgram = True
             runningScript = False
-            if(h.sound): winsound.Beep(50, 400)
-        elif(key == h.change):#change script
+            if(settings[6] == 'True'): winsound.Beep(50, 400)
+        elif(str(key) == settings[3]):#change script
             changeScriptEvent = True
         #blocks it from typing in the chat
         if(key == Key.enter and runningScript):
-            if(h.sound): winsound.Beep(50, 400)
+            if(settings[6] == 'True'): winsound.Beep(50, 400)
             runningScript = False
         for readyCheck in readychecks:
             if(checkThis(readyCheck, key)):
                 time.sleep(0.1)
                 runningScript = True
-                if(h.sound): winsound.Beep(600, 400)
-                typeThis(h.readyCheck)
+                if(settings[6] == 'True'): winsound.Beep(600, 400)
+                typeThis(settings[4])
     keyPressed = True
     #commands
     if(runningScript):
@@ -169,12 +171,14 @@ def on_release(key):
 
 #this is where the main part of the code starts executing
 def input_thread():
-    global readychecks, commands, csvRunning, closeProgram
+    global readychecks, commands, csvRunning, closeProgram, settings
     closeProgram = False
+    settings = readSettings()
+    print(settings)
     if(csvRunning == ''):
         #open default csv titled def.csv
-        try: commands, csvRunning = openCsv(h.defaultMacro)
-        except: print('ERROR: failed to open default ', h.defaultMacro)
+        try: commands, csvRunning = openCsv(settings[5])
+        except: print('ERROR: failed to open default ', settings[5])
     readMe(commands, csvRunning)
     readychecks = [hotkeyCheck(['Key.enter',"'r'",'Key.enter']),hotkeyCheck(["'/'","'p'",'Key.space',"'r'","Key.enter"])]
     while (not closeProgram):
@@ -182,6 +186,14 @@ def input_thread():
             listener.join()
     print('input thread should be closing*')
     return False
+
+def readSettings():
+    temp = []
+    with open('macro_settings.txt', 'r') as file:
+        reader = csv.reader(file, delimiter = ',')
+        for row in reader:
+            temp.append(row[1])
+        return temp
 
 def nextKey_thread():
     while(changeCsvInput):
@@ -265,3 +277,4 @@ def checkThis(readycheck, key):
         else:
             readycheck.index = 0
             checkThis(readycheck, key)
+            

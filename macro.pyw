@@ -1,4 +1,4 @@
-import macro2 as s, _thread, tkinter, time, os, macro_settings as h
+import macro2 as s, _thread, tkinter, time, os
 path = os.path.abspath(os.path.dirname(__file__))
 
 #open default csv titled def.csv
@@ -34,11 +34,11 @@ def changeScript():
 def isMacroRunningText():
     if(s.runningScript): 
         temp = 'Macro is running.  Press '
-        temp = temp + str(h.toggleOff) + ' to turn it off.'
+        temp = temp + str(s.settings[1]) + ' to turn it off.'
         return temp
     else: 
         temp = "Macro isn't running.  Press "
-        temp = temp + str(h.toggleOn) + ' to turn it on.'
+        temp = temp + str(s.settings[0]) + ' to turn it on.'
         return temp
     
 def refreshLabels():
