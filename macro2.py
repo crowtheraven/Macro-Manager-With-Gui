@@ -129,7 +129,6 @@ def on_press(key):
     global keyPressed, runningScript, closeProgram, commands, changeScriptEvent
     #things that you only want to execute once while a key is held down
     if(not keyPressed):
-        print('key just pressed')
         if(str(key) == settings[0] and not runningScript):#enable
             if(settings[6] == 'True'): winsound.Beep(600, 400)
             runningScript = True
@@ -171,16 +170,17 @@ def on_release(key):
 
 #this is where the main part of the code starts executing
 def input_thread():
-    global readychecks, commands, csvRunning, closeProgram, settings
+    global readychecks, commands, csvRunning, closeProgram, settings, runningScript
     closeProgram = False
     settings = readSettings()
-    print(settings)
+    print('settings: ',settings)
     if(csvRunning == ''):
         #open default csv titled def.csv
         try: commands, csvRunning = openCsv(settings[5])
         except: print('ERROR: failed to open default ', settings[5])
     readMe(commands, csvRunning)
     readychecks = [hotkeyCheck(['Key.enter',"'r'",'Key.enter']),hotkeyCheck(["'/'","'p'",'Key.space',"'r'","Key.enter"])]
+    runningScript = True
     while (not closeProgram):
         with Listener(on_press = on_press, on_release = on_release) as listener:
             listener.join()
