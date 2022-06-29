@@ -1,0 +1,14 @@
+toggle on/off,Key.insert
+wait for syncing then toggle on/off,Key.delete
+sound on,True,Change 'True' to anything else to turn sound off.
+change preset,Key.home
+default of what to type,6
+default wait between typing,1100
+default of what to type,7
+default wait between typing,1100
+default of what to type,8
+default wait between typing,1100
+default of what to type,9
+default wait between typing,1100
+default of what to type,5
+default wait between typing,1100
